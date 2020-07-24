@@ -25,11 +25,16 @@ export default {
             ]
             });
         },
-        likeCount: (parent) => prisma.likesConnection({
+        likeCount: parent => prisma.likesConnection({
             where: { post: { id: parent.id } }
         })
         .aggregate()
         .count(),
+        commentCount: parent => prisma.commentsConnection({
+            where: { post: { id: parent.id } }
+        })
+        .aggregate()
+        .count()
         
         
         }   
