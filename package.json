@@ -1,11 +1,6 @@
 {
   "name": "prismagram",
   "version": "1.0.0",
-  "engines": {
-    "node": "12.16.2",
-    "npm": "6.14.4",
-    "yarn": "1.12.3"
-    },
   "description": "instagram clone with Express +Prisma + React and React Native",
   "main": "index.js",
   "repository": "https://github.com/leekyungho112/prismagram",
@@ -43,6 +38,7 @@
     "generate": "prisma generate",
     "prisma": "yarn run deploy && yarn run generate",
     "dev": "nodemon --exec babel-node src/server.js",
+    "prebuild":"yarn run prisma",
     "build": "babel src -d build",
     "postbuild": "cd src && npx copy ./api/**/*.graphql ../build/api/",
     "start": "node build/server.js"
